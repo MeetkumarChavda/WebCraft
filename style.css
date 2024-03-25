@@ -1,7 +1,19 @@
+
+@font-face {
+    font-family: gilroy;
+    src: url(./Assets/Fonts/Gilroy-Light.otf);
+}
+
+@font-face {
+    font-family: Mazius-Extraitalic;
+    src: url(./Assets/Fonts/Mazius-Extraitalic.121a71a7.otf);
+}
 /* Global Reset */
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
 }
 
 /* Layout */
@@ -9,3 +21,81 @@ html , body {
     width: 100%;
     height: 100%;
 }
+
+:root{
+    --main-bgc : var(#FCFAF8);
+    --green_shade:var(#14CF93);
+}
+
+main {
+    width: 100%;
+    position: relative;
+}
+
+.loader{
+    width: 100%;
+    height: 100vh; 
+    color: white;
+    background-color: black;
+}
+
+.loader .topHeading {
+    top:5%;
+    left:50%;
+    font-size: 1vw;
+    font-weight: 3w00;
+    position: absolute;
+    transform: translate(-50% , 0);
+}
+
+.loader h1{
+    top:45%;
+    left:50%;
+    width: 100%;
+    display: flex;
+    font-size: 5vw;
+    font-weight: 700;
+    position: absolute;
+    justify-content: center;
+    transform: translate(-50% , -50%);
+}
+
+.reveal_up .parentSpan {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.reveal_up .childSpan{
+    display: block;
+}
+
+.childSpan > span {
+    display: inline-block;
+}
+
+.childSpan > span.green{
+    color: #14CF93;
+    font-family: Mazius-Extraitalic;
+}
+
+span.green::first-letter{
+    font-size: 6vw;
+}
+
+.topHeading{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Animation */
+.green_screen{
+    width: 100%;
+    top: 100%;
+    height: 0vh;
+    position: absolute;
+    background-color: #14CF93;
+}
+
+ 
+
