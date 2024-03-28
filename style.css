@@ -25,6 +25,7 @@
 html , body {
     width: 100%;
     height: 100%;
+    background-color: #FCFAF8;
 }
 
 main {
@@ -44,7 +45,7 @@ main {
     height: 100%;
     z-index: 10;
     color: white;
-    position: absolute;
+    position: fixed;
     background-color: black;
 }
 
@@ -219,4 +220,180 @@ path , polyline {
 .row h1{
     color: #383838;
     font-size: 12vw;
+}
+
+.imagery{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vw 4vw;
+    margin-top: 17vw;
+    background-color: #FCFAF8;
+}
+
+.left_container{
+    width: 30%;
+    height: auto;
+    margin-top: -10vw;
+}
+
+.left_container h1 {
+    color: #383838;
+    font-size: 2.5vw;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.left_container h1 span{
+    color: #14CF93;
+    text-transform: none;
+    font-weight: 300;
+    font-family: Mazius-Extraitalic;
+}
+
+.right_container{
+    z-index: 2;
+    width: 60%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 5vw;
+}
+
+.imgContainer{
+    top: 50%;
+    left: 50%;
+    width: 30vw;
+    height: 45vw;
+    position: absolute;
+    border-radius: 1vw;
+    filter: grayscale() drop-shadow(10px 10px 10px #000000c9) ;
+    background-size: cover;
+    background-position: center;
+}
+
+.imgContainer:nth-child(1){
+    background-image: url(./Assets/Images/card1.png);
+    transform: translate(-80%,-60%) rotate(-15deg);
+}
+.imgContainer:nth-child(2){
+    background-image: url(./Assets/Images/card2.png);
+    transform: translate(-40%,-50%) rotate(-5deg);
+}
+.imgContainer:nth-child(3){
+    transform: translate(-10%,-35%) rotate(-2deg);
+    background-image: url(./Assets/Images/card3.png);
+}
+
+.imgContainer:hover{
+    filter: grayscale(0) drop-shadow(10px 10px 10px #000000c9);
+    transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s;
+}
+
+.work{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 120px;
+    background-color: #F2F2F2;
+}
+
+.work::before{
+    content: "";
+    width: 100%;
+    height: 150px;
+    top:-10vh;
+    left: 0%;
+    position: absolute;
+    transform: rotate(180deg);
+    background-size: cover;
+    background-image: url(./Assets/Images/rip.f6d7c4dd.svg);
+}
+
+.service_info{
+    margin: 15vh 5vw 15vh 15vw;
+    padding: 6vh 4vw 6vh 0vw;
+    border-bottom: 1px solid  #555555;
+}
+
+.arrow_container{
+    top: 23%;
+    left: 7%;
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+}
+
+.arrow_container img , .arrow2_container img {
+    width: 100%;
+    height: 100%;
+}
+
+.work h1.service{
+    color: #383838;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+}
+
+.work h5.service{
+    padding-bottom: 4vh;
+    color: #383838;
+    text-transform: uppercase;
+}
+
+.work h5.service span {
+    color: #383838;
+    font-family: Mazius-Extraitalic;
+}
+
+.work_header{
+    display: flex;
+    align-items: center;
+    padding: 6vh 4vw 6vh 0vw;
+    margin: 15vh 5vw 15vh 15vw;
+    /* work here later for svg morph */
+    justify-content: space-between;
+}
+
+.count{
+    font-size: 2vw;
+    font-weight: 500;
+}
+
+.work_header h1 span {
+    color: #14CF93;
+    font-weight: 500;
+    font-size: 8vw;
+    font-family: Mazius-Extraitalic;
+}
+
+.work_header h1{
+    color: #383838;
+    display: flex;
+    align-items: baseline;
+    font-size: 8vw;
+}
+
+.arrow2_container{
+    width: 8vw;
+    height: 8vw;
+}
+
+.work_images_wrapper{
+    width: 100%;
+    position: relative;
+}
+
+.img_container_1{
+    width: 55%;
+    overflow: hidden;
+    border-radius: 5vw;
+}
+
+.img_container_1 img {
+    width: 110%;
 }

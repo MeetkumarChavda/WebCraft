@@ -59,8 +59,8 @@ function animateSVG(){
 function animateHomePage(){
 
     let homeAnimationTL = gsap.timeline();
-    homeAnimationTL.to(".header__brand",{y : "0",opacity:1,duration:4.5,ease : "bounce.out"})
-    .to(".header_navItems h1",{y : "0",opacity:1,ease :Expo.easeInOut},">-1")
+    homeAnimationTL.to(".header__brand",{y : "0",opacity:1,duration:3.5,ease : "bounce.out"})
+    .to(".header_navItems h1",{y : "0",opacity:1,ease :Expo.easeInOut},">-.5")
     .to(".list_items",{y : "0",opacity:1,stagger:0.3,ease :"Expo.easeInOut"},">-.5")
     .to(".intro_container .row span .childSpan",{y:"-6%",opacity:1,duration: 1,ease: "Circ.easeInOut"})
     .to(".arrow svg",{opacity:1,ease :"Expo.easeInOut",
