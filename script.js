@@ -69,8 +69,82 @@ function animateHomePage(){
         }
     });
 }
+function animateSquiggle() {
+
+    const svg = document.querySelector("svg.squiggle");
+    const path = svg.querySelector("path");
+    const serviceInfo = document.querySelector(".service_info");
+    const workHeader = document.querySelector(".work_header");
+    const pathLength = path.getTotalLength();
+
+    path.style.strokeDasharray = pathLength;
+    // Ensure the path is initially hidden
+    path.style.strokeDashoffset = pathLength;
+
+    // Helper function to calculate animation progress
+    const calculateProgress = () => {
+        // Get positions
+        const serviceInfoBottom = serviceInfo.getBoundingClientRect().bottom + window.scrollY;
+        const workHeaderTop = workHeader.getBoundingClientRect().top + window.scrollY;
+
+        // Adjust the start and end points
+        const start = serviceInfoBottom - window.innerHeight; // Start when serviceInfo hits bottom of viewport
+        const end = workHeaderTop - (window.innerHeight * 0.1); // End a bit before workHeader is at the top
+
+        // Calculate current progress
+        const scrollPosition = window.scrollY;
+        let progress = (scrollPosition - start) / (end - start);
+
+        // Clamp the progress to the range [0, 1]
+        progress = Math.max(0, Math.min(1, progress));
+        return progress;
+    };
+
+    // Update the animation based on the calculated progress
+    const updateAnimation = () => {
+        const progress = calculateProgress();
+        // Update the stroke offset based on progress
+        path.style.strokeDashoffset = pathLength * (1 - progress);
+
+        // Optionally, log the progress for debugging
+        // console.log(progress);
+    };
+
+    // Initial update and setup scroll event listener
+    document.addEventListener("scroll", updateAnimation);
+    updateAnimation();
+}
+
+// animateSquiggle();
 
 
+
+function cardHoverShow() {
+    let containerRef = document.querySelectorAll(".img_common_cnt");
+    containerRef.forEach(function(container){
+        let showingImage;
+        let arr_currValues;
+        let img_index;
+        container.addEventListener("mousemove",function(details){
+           showingImage = details.target;
+           img_index = details.target.dataset.index ;
+           backgroundColor_set = details.target.dataset.bgc; 
+           arr_currValues = document.querySelector(".cursor").children;
+           showingImage.style.filter = "grayscale(1)";
+           document.querySelector(".work").style.backgroundColor = backgroundColor_set;
+           arr_currValues[img_index-1].style.opacity = 1 ;
+           arr_currValues[img_index-1].style.transform = `translate(${details.clientX}px ,${details.clientY}px)` ;
+           
+        })
+        container.addEventListener("mouseleave",function(details){
+           showingImage.style.filter = "grayscale(0)";
+           arr_currValues[img_index-1].style.opacity = 0 ;
+           document.querySelector(".work").style.backgroundColor = "#F2F2F2";
+           
+         })
+
+    });
+}
 /**
  * Initiates the animation sequence for the web page. The execution order is critical to ensure
  * the visual elements are revealed and animated properly.
@@ -83,7 +157,9 @@ function animateHomePage(){
 function initiateAnimationSequence() {
     revealSpan();     
     valueSetters();   
-    loaderAnimation(); 
+    loaderAnimation();
+    cardHoverShow();
+    animateSquiggle()
 }
 
 initiateAnimationSequence();
