@@ -21,6 +21,8 @@ function valueSetters(){
     gsap.set(".header_navItems h1, .list_items, .header__brand", {y: "-100vh" , opacity:0});
     gsap.set(".intro_container .row span .childSpan",{y:"100%"});
     gsap.set(".arrow svg",{opacity:0});
+    gsap.set(".right_container" ,{opacity:0});
+    gsap.set(".feat_work span .childSpan",{y:"100%"})
 
     // Prepare SVG paths for animation
     document.querySelectorAll("#Visual>g").forEach(function(e){
@@ -67,8 +69,11 @@ function animateHomePage(){
         onComplete : function(){
             animateSVG();
         }
-    });
+    })
+    .to(".right_container" ,{opacity:1 ,ease :"Expo.easeInOut"})
+    .to(".feat_work span .childSpan",{y : "0",opacity:1,ease :Expo.easeInOut},">-.5")
 }
+
 function animateSquiggle() {
 
     const svg = document.querySelector("svg.squiggle");
@@ -103,23 +108,18 @@ function animateSquiggle() {
     // Update the animation based on the calculated progress
     const updateAnimation = () => {
         const progress = calculateProgress();
-        // Update the stroke offset based on progress
-        path.style.strokeDashoffset = pathLength * (1 - progress);
-
+       
+        path.style.strokeDashoffset = pathLength * (1 - progress);  // Update the stroke offset based on progress
         // Optionally, log the progress for debugging
         // console.log(progress);
     };
 
-    // Initial update and setup scroll event listener
-    document.addEventListener("scroll", updateAnimation);
+    document.addEventListener("scroll", updateAnimation);// Initial update and setup scroll event listener
     updateAnimation();
 }
 
-// animateSquiggle();
-
-
-
 function cardHoverShow() {
+
     let containerRef = document.querySelectorAll(".img_common_cnt");
     containerRef.forEach(function(container){
         let showingImage;
@@ -142,24 +142,25 @@ function cardHoverShow() {
            document.querySelector(".work").style.backgroundColor = "#F2F2F2";
            
          })
-
     });
 }
 /**
- * Initiates the animation sequence for the web page. The execution order is critical to ensure
+ * Initiates the animation sequence for the web page. The execution order is crucial to ensure
  * the visual elements are revealed and animated properly.
  * 
- * The sequence starts with revealing the spans using "revealSpan", which likely sets up initial
- * visibility and positions. Following that, "valueSetters" is called to configure initial states
- * for various elements, ensuring they are ready for animation. Finally, `loaderAnimation` triggers
- * the actual loading animation, smoothly transitioning the elements into view.
+ * The sequence begins by revealing the spans using the "revealSpan" function, which likely sets up initial
+ * visibility and positions. Following that, the "valueSetters" function is called to configure initial states
+ * for various elements, ensuring they are ready for animation. Finally, the `loaderAnimation` function is triggered
+ * to initiate the actual loading animation, smoothly transitioning the elements into view. Additionally, the
+ * `cardHoverShow` function is called to enable card hover effects, and the `animateSquiggle` function is invoked
+ * to animate the squiggle SVG path based on scrolling.
  */
 function initiateAnimationSequence() {
     revealSpan();     
     valueSetters();   
     loaderAnimation();
     cardHoverShow();
-    animateSquiggle()
+    animateSquiggle();
 }
 
 initiateAnimationSequence();
