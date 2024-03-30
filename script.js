@@ -144,6 +144,9 @@ function cardHoverShow() {
          })
     });
 }
+
+// Call the function to initialize the animations when the document is ready
+
 /**
  * Initiates the animation sequence for the web page. The execution order is crucial to ensure
  * the visual elements are revealed and animated properly.
@@ -162,5 +165,4 @@ function initiateAnimationSequence() {
     cardHoverShow();
     animateSquiggle();
 }
-
-initiateAnimationSequence();
+initiateAnimationSequence()

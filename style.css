@@ -26,6 +26,8 @@ html , body {
     width: 100%;
     height: 100%;
     background-color: #FCFAF8;
+    /* scrollbar-width: none; */
+    scroll-behavior: smooth;
 }
 
 main {
@@ -708,22 +710,25 @@ path , polyline {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+
+.circle_arrow img:hover.arr{
+    rotate: -30deg;
 }
 
 .lets_talk_wrapper{
     width: 100%;
     min-height: 120vh;
     position: relative;
-    /* background-color: #14CF93; */
-    /* background-color: linear-gradient(to top right, #14CF93, #6febc4, #a3d3c4); */
     background-color: #253B39;
-    /* background-image: url(./Assets/Images/sssurf.svg); */
    background-size: cover;
 
 }
 .msg_wrapper{
     padding-top: 5vw;
 }
+
 .msg_wrapper h1 {
     color: #fff;
     font-size: 6vw;
@@ -732,14 +737,12 @@ path , polyline {
 }
 
 .btn_holder{
-    /* margin: 2vw 1vw; */
-    
     width: 100%;
     height: 5vw;
-    /* background-color: #FCFAF8; */
     display: flex;
     justify-content: space-evenly;
 }
+
 .footer_btn{
     color: #fff;
     margin-top: 5vw;
@@ -763,6 +766,7 @@ path , polyline {
     padding: 13vw 4vw;
     justify-content: space-between;
 }
+
 .socials a{
     padding: 2vw 1vw;
     display: flex;
@@ -772,26 +776,27 @@ path , polyline {
     border-top: 1px solid white;
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
 }
+
 .p_logo img{
     width: 100%;
     object-fit: cover;
 }
 
 .p_logo{
-    /* object-fit: c; */
     margin-left: 2vw;
     width: 3vw;
     height: 3vw;
-    /* background-color: #fff; */
 }
 
 .platform{
     color: #fff;
     font-size: 2vw;
 }
+
 .platform_id{
     color: #f2f2f2ca;
 }
+
 .socials a:hover{
     scale: 0.9;
     background-color: #14cf9480;
